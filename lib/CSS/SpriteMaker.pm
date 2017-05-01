@@ -1664,7 +1664,8 @@ sub _generate_colormap_for_image_properties {
         my $y = 0;
         for my $fake_y ($rh_info->{first_pixel_y} .. $rh_info->{height}) {
 
-            my $color = $Image->getPixel($fake_x, $fake_y);
+            my $colorno = $Image->getPixel($fake_x, $fake_y);
+            my $color = join(",", $Image->rgb($colorno), $Image->alpha($colorno));
 
             push @{$rh_info->{colors}{map}{$color}}, {
                 x => $x,
