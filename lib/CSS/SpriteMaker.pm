@@ -283,8 +283,7 @@ according to the given layout name.
         target_file => 'sample_sprite.png',
         layout_name => 'Packed',
 
-        # all imagemagick supported formats
-        format => 'png8', # optional, default is png
+        format => 'png', # optional, default is png
     );
 
 returns true if an error occurred during the procedure.
@@ -1294,7 +1293,7 @@ sub _write_image {
         $err = 'Unsupported output format';
     }
     if ($err) {
-        warn "unable to obtain $target_file for writing it as $output_format. Perhaps you have specified an invalid format. Check http://www.imagemagick.org/script/formats.php for a list of supported formats. Error: $err";
+        warn "unable to obtain $target_file for writing it as $output_format. Perhaps you have specified an invalid format. Run perldoc GD for a list of supported formats. Error: $err";
 
         $self->_verbose("Wrote $target_file");
 
